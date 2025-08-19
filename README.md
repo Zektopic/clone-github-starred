@@ -1,6 +1,8 @@
 
 # GitHub Starred Repository Cloner
 
+![Python CI](.github/workflows/ci.yml/badge.svg)
+
 This Python script automates the process of cloning all repositories starred by a GitHub user. Simply provide your GitHub username and Personal Access Token (PAT), and it will fetch and clone the repositories into a local directory.
 
 ## Features
@@ -28,7 +30,7 @@ pip install -r requirements.txt
 ```
 
 ### 3. Configure Your Credentials
-Edit `github-clone.py` and set your GitHub username and PAT:
+Edit `github_clone.py` and set your GitHub username and PAT:
 ```python
 username = 'Enter Your Username'
 token = 'Enter Your PAT'
@@ -37,7 +39,7 @@ token = 'Enter Your PAT'
 ### 4. Run the Script
 Execute the script to clone starred repositories:
 ```bash
-python github-clone.py
+python github_clone.py
 ```
 
 ## Troubleshooting
