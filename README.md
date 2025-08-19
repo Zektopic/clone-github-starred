@@ -1,19 +1,21 @@
-
-# GitHub Starred Repository Cloner
+# GitHub Repository Cloner
 
 ![Python CI](.github/workflows/ci.yml/badge.svg)
 
-This Python script automates the process of cloning all repositories starred by a GitHub user. Simply provide your GitHub username and Personal Access Token (PAT), and it will fetch and clone the repositories into a local directory.
+This Python script automates the process of cloning repositories from GitHub. It can clone all repositories starred by a user or all repositories from a specific organization.
 
 ## Features
-- Automatically fetches starred repositories.
-- Clones each repository locally.
+- Clone all starred repositories for a user.
+- Clone all repositories from a GitHub organization.
+- Command-line interface to specify what to clone.
+- Handles GitHub API pagination to fetch all repositories.
+- Includes rate limiting handling to avoid API request failures.
 - Skips already cloned repositories to avoid duplication.
 
 ## Requirements
 - Python 3.x
-- `requests` library (`pip install requests`)
-- `GitPython` library (`pip install gitpython`)
+- `requests` library
+- `GitPython` library
 - A GitHub Personal Access Token (PAT)
 
 ## Installation & Usage
@@ -29,18 +31,26 @@ cd clone-github-starred
 pip install -r requirements.txt
 ```
 
-### 3. Configure Your Credentials
-Edit `github_clone.py` and set your GitHub username and PAT:
-```python
-username = 'Enter Your Username'
-token = 'Enter Your PAT'
+### 3. Run the Script
+Execute the script using the command-line interface. You must provide a GitHub Personal Access Token (PAT) with the `--token` argument.
+
+#### To clone starred repositories:
+Use the `--starred` argument with your GitHub username.
+```bash
+python github_clone.py --token YOUR_PAT --starred YOUR_USERNAME
 ```
 
-### 4. Run the Script
-Execute the script to clone starred repositories:
+#### To clone repositories from an organization:
+Use the `--org` argument with the organization name.
 ```bash
-python github_clone.py
+python github_clone.py --token YOUR_PAT --org ORGANIZATION_NAME
 ```
+
+#### Optional Arguments:
+- `--clone-dir`: Specify a directory to clone the repositories into. Defaults to `repos`.
+  ```bash
+  python github_clone.py --token YOUR_PAT --starred YOUR_USERNAME --clone-dir my_starred_repos
+  ```
 
 ## Troubleshooting
 - Ensure your PAT has the necessary permissions to read repository data.
@@ -52,6 +62,3 @@ Feel free to submit issues or pull requests to enhance the functionality.
 
 ## License
 This project is licensed under the MIT License.
-
-```
-```
