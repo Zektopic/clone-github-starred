@@ -1,0 +1,12 @@
+certifi==2025.8.3
+charset-normalizer==3.4.3
+gitdb==4.0.12
+GitPython==3.1.45
+greenlet==3.2.3
+idna==3.10
+playwright==1.54.0
+pyee==13.0.0
+requests==2.32.5
+smmap==5.0.2
+typing_extensions==4.14.1
+urllib3==2.5.0
